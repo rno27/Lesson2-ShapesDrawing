@@ -29,14 +29,25 @@ namespace ShapesDrawing{
                 Console.Write("Xcoordinate:");
                 string var = Console.ReadLine();
                 int result = Int32.Parse(var);
-                center.SetXCoordinate(result);
+                if(result<0)
+                        throw new ArgumentOutOfRangeException("Coordinate must be a positive number !");
+                    else
+                    center.SetXCoordinate(result);
+    
                 Console.Write("Ycoordinate:");
                 var =  Console.ReadLine();
                 result = Int32.Parse(var);
-                center.SetYCoordinate(result);
+                if(result<0)
+                        throw new ArgumentOutOfRangeException("Coordinate must be a positive number !");
+                    else
+                        center.SetYCoordinate(result);
+
                 Console.Write("Radius:");
                 var =  Console.ReadLine();
                 result = Int32.Parse(var);
+                if(result<=0)
+                        throw new ArgumentOutOfRangeException("Radius must grater than 0 !");
+                    else
                 radius = result;
                
             }
