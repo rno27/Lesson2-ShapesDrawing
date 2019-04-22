@@ -1,46 +1,58 @@
 using System;
 using System.Linq;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace ShapesDrawing
 {
     public class ConsoleMenuController
     {
 
+
         Menu mainMenu = new Menu();
 
+        List<IShape> shapesList = new List<IShape>();
 
-        void HandleDrawCircle(){
-            Circle circle = new Circle();
-            circle.ReadCircleInfo();
-            circle.ReadCircleInfo();
+        public void RenderCanvas(){
+            Console.Clear();
+            foreach (IShape var in shapesList)
+                var.Draw();
+            Console.ReadLine();
         }
 
-        public ConsoleMenuController()
-        {
+        public void HandleDrawSquare(){
+            Console.Clear();
+            Square square = new Square();
+            square.ReadSquareInfo();
+            shapesList.Add(square);
+        }
            
-        }    
-    
-        public void HandleDrawRectangle(){}
-        public void HandleDrawTriangle(){}
-       
+        public void HandleDrawCircle(){
+            Console.Clear();
+            Circle circle = new Circle();
+            circle.ReadCircleCoordinates();
+            shapesList.Add(circle);
+        }
+
+        public void HandleDrawTriangle(){
+            Console.Clear();
+            Triangle triangle = new Triangle();
+            Console.WriteLine("Not implemented !");
+            Console.ReadLine();
+
+        }
+
         public void Initialize()
         {   
-
-            Menu newCustomerMenu = new Menu();
-            Menu newSellerMenu = new Menu();
+            
             Menu newOrderMenu = new Menu();
 
-            mainMenu.SetMenuItem(1, "Seller accout", newCustomerMenu, () => HandleDrawCircle());
-            mainMenu.SetMenuItem(2, "Customer accout",newSellerMenu, () => HandleDrawRectangle());
-            mainMenu.SetMenuItem(3, "Customer accout",newSellerMenu, () => HandleDrawTriangle());
+            mainMenu.SetMenuItem(1, "Draw Square", () => HandleDrawSquare());
+            mainMenu.SetMenuItem(2, "Draw Circle", () => HandleDrawCircle());
+            mainMenu.SetMenuItem(3, "Draw Triangle", () => HandleDrawTriangle());
+            mainMenu.SetMenuItem(4, "Render Canvas", () => RenderCanvas());
+            
 
-            /* 
-            newCustomerMenu.OnPreRender = new Action( ()=> DisplayCustomerName());
-            newCustomerMenu.SetMenuItem(1, "New Order", newOrderMenu, () => orderController.StartNewOrder(LoggedInCustomer));  
-            newCustomerMenu.SetMenuItem(2, "Back", mainMenu);  
-            */
-
-           
         }
         public void EnterMainMenu()
         {

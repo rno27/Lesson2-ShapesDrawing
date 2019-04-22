@@ -4,14 +4,32 @@ namespace ShapesDrawing{
 
     public class Point{
 
-        private float Xcoordinate{get;set;}
-        private float Ycoordinates{get;set;}
-    
+        private int Xcoordinate;
+        private int Ycoordinate;
 
-        public Point (float X,float Y){
+        public Point(){
+            
+        }
+        public Point (int X, int Y){
             Xcoordinate = X;
-            Ycoordinates = Y;
+            Ycoordinate = Y;
          }
+         
+        public int GetXCoordinate(){
+            return Xcoordinate;
+        }
+
+        public int GetYCoordinate(){
+            return Ycoordinate;
+        }
+
+        public void SetXCoordinate(int newX){
+            Xcoordinate = newX;
+        }
+
+        public void SetYCoordinate(int newY){
+            Ycoordinate = newY;
+        }
     }
 
 }
