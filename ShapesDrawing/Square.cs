@@ -22,15 +22,26 @@ namespace ShapesDrawing{
             Console.Write("Xcoordinate:");
             string var = Console.ReadLine();
             int result = Int32.Parse(var);
-            topLeftPoint.SetXCoordinate(result);
+            if(result<0)
+                    throw new ArgumentOutOfRangeException("Coordinate must be a positive number !");
+                else
+                     topLeftPoint.SetXCoordinate(result);
+
             Console.Write("Ycoordinate:");
             var =  Console.ReadLine();
             result = Int32.Parse(var);
-            topLeftPoint.SetYCoordinate(result);
+            if(result<0)
+                    throw new ArgumentOutOfRangeException("Coordinate must be a positive number !");
+                else
+                     topLeftPoint.SetYCoordinate(result);
+
             Console.Write("Height:");
             var = Console.ReadLine();
             result = Int32.Parse(var);
-            height = result;
+            if(result<0)
+                    throw new ArgumentOutOfRangeException("Radius must be a positive number !");
+                else
+                    height = result;
             Console.WriteLine();
         
         }

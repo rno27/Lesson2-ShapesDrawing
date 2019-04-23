@@ -4,7 +4,7 @@ namespace ShapesDrawing{
 
     public interface IShape{
 
-        void draw();
+        void Draw();
 
     }
 
